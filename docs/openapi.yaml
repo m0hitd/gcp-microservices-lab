@@ -1,0 +1,27 @@
+swagger: "2.0"
+info:
+  title: "Microservices API Gateway"
+  version: "1.0.0"
+paths:
+  /health:
+    get:
+      summary: "Health check"
+      responses:
+        200:
+          description: "Service is healthy"
+  /submit-job:
+    post:
+      summary: "Submit a job"
+      parameters:
+        - in: "body"
+          name: "body"
+          schema:
+            type: "object"
+            properties:
+              jobType:
+                type: "string"
+              data:
+                type: "object"
+      responses:
+        202:
+          description: "Job accepted"
